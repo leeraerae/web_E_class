@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        ul, li{list-style: none;}
+        #wrap{
+            top: 0;
+            left: -15vw;
+            transition: all 0.5s;
+        }
+        nav{
+            width: 20vw;
+            height: 100vh;
+            background-color: darkslateblue;
+        }
+        nav ul{
+            width: 100px;
+            line-height: 50px;
+        }
+        nav ul li{
+            width: 100px;
+            height: 60px;
+            border-bottom: powderblue 1px solid;
+        }
+        button{
+            width: 100px;
+            height: 100px;
+            margin-top: 5vh;
+            margin-left: 10vw;
+            border: none;
+            background-color: sandybrown;
+            transition: all 0.5s;
+
+        }
+        #container{
+            width: 50vw;
+            height: 80vh;
+            background-color: peachpuff;
+            top: 10vh;
+            right: 10vw;
+            display: none;
+        }
+        .po-ab{
+            position: absolute;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .color-fff{color: #fff;}
+        .flex{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .flex-left{
+            display: flex;
+            justify-content: left;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap" class="flex-left po-ab">
+    <nav class="flex">
+        <ul class="color-fff text-center">MENU
+            <li class="color-fff">sub1</li>
+            <li id="show" class="color-fff">sub2</li>
+            <li class="color-fff">sub3</li>
+        </ul>
+    </nav>
+
+    <button>
+        MENU
+    </button>
+</div>
+
+<div id="container" class="po-ab"></div>
+
+<script>
+    // 변수 선언
+    const button = document.querySelector('button');
+    const menu = document.querySelector('#wrap');
+    const nav = document.querySelector('nav');
+    const sub = document.querySelector('#show');
+    const con = document.querySelector('#container');
+
+    // 버튼을 누르면 메뉴가 나오게해줘
+    button.addEventListener('click', ()=>{
+        // menu.style.left = '0';
+        if(menu.style.left === '-15vw'){
+            menu.style.left = '0';
+            nav.style.backgroundColor = 'rgb(128, 118, 192)';
+            button.style.borderRadius = '50px';
+        }else{
+            menu.style.left = '-15vw';
+        };
+
+        // !! 문제점 !! 배경색 바꾸려고 했는데 클릭 두번 눌러야 메뉴가 나와서 보완 필요
+
+        // 백그라운드도 바꿔줘
+        // nav.style.backgroundColor = 'rgb(128, 118, 192)';
+
+    });
+    // 두번째 li를 누르면 container가 뜨게 해줘
+    sub.addEventListener('click', ()=>{
+        // container.style.display = 'block'
+        if(container.style.display === 'block'){
+        container.style.display = 'none';
+        }else{
+        container.style.display = 'block';
+        }
+    });
+    
+</script>
+</body>
+</html>
